@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/loginbase.css" type="text/css">
+		<link rel="stylesheet" href="css/logincont.css" type="text/css">
+		<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+		<link rel="stylesheet" href="css/layer.css" type="text/css">
+			<script src="js/jquery-3.2.1.min.js"></script>
+		<meta name="viewport" content="width=device-width,height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+		<meta charset="utf-8">
+		<title>奇创bug管理系统，云端bug管理工具</title>
+		<style>
+        body{min-height:650px;}
+        .copyright{ text-align:center; position:fixed;bottom:10px;width:100%; color:black; font-size:12px; line-height:44px;}
+        .copyright a{color:black;}
+        .learnMore{width:75px;height:210px;
+         background:url(image/more1.png) no-repeat;
+          position:absolute;
+          right:-75px;top:0;
+          z-index:99;
+          -webkit-transition:.3s; 
+          transition:.3s;}
+        .learnMore:hover{background:url(image/more.png) no-repeat;}
+        </style>
+	</head>
+	<body style="overflow:hidden;">
+		<div class="bugdoneLogin">
+			<a href="/home/" target="_blank">
+				<div class="learnMore"></div>
+			</a>
+			<div class="logo">
+				<img src="../image/">
+			</div>
+			<div class="box-hidden">
+				<div class="box-wrap">
+						<!--<div id="accountRecord" class="box d-none" style="display: block;">
+					
+					<div class="select-account">
+							<div class="inner">
+								<div class="title">
+									<strong></strong>
+								</div>
+								<div class="record">
+								-->
+							<div id="accountBox" class="box">
+								<div class="inner">
+									<!--无账号记录-->
+									<div class="title">
+										<strong>登录</strong>
+										<p>使用邮箱登录</p>
+									</div>
+									<div class="textbox">
+									<div class="text-tit">电子邮件地址</div>
+									<i class="line"></i>
+									<i class="lined"></i>
+									<input id="txtEmail" value="" type="text"/>
+								</div>
+								<div class="textbox" style="margin-top: 30px;">
+									<div class="text-tit">输入密码</div>
+									<i class="line"></i>
+									<i class="lined"></i>
+									<input id="txtPassword1" value="" type="password"/> 
+								</div>
+								<div class="textbox" style="margin-top: 30px;">
+									<div class="text-tit">验证码</div>
+									<i class="line"></i>
+									<i class="lined"></i>
+									<input id="txtCode" value="" type="text"/> 
+									<img src="/bugmanage/user/getcode">
+								</div>
+								<div class="operate">
+									<div class="f-r">
+										<input name="" value="登录" onclick="login()" type="button">
+									</div>
+									<div class="btn p-relative">
+										<span >更多选项</span>
+										<div class="btnBox p-absolute" style="margin-left: 4rem; margin-top:-1.5rem;display: block;">
+											<a href="/findpassword">忘记密码</a>
+											<a href="/register">创建账号</a>
+										</div>
+									</div>
+								</div>
+							   </div>
+							</div>
+							<!--box -->
+							<div id="passwordBox" class="box">
+								<div class="inner">
+									<div id="buser" class="account-info">
+										<h4>Terrell</h4>
+										<p>
+											<i class="lg-arrow" onclick="prevStep('back')"></i>
+											<img src="../image/time.jpg" align="left">
+											<span></span>
+										</p>
+									</div>
+									<div class="textbox">
+										<div class="text-tit">输入密码</div>
+										<i class="line"></i>
+										<i class="lined"></i>
+										<input id="txtPassword" value="" type="password" />
+									</div>
+									<div class="operate">
+										<div class="f-r">
+											<input name="" value="登录" onclick="login()" type="button">
+										</div>
+										<div class="btn p-relative">
+											<a class="color-0" href="/findpassword">忘记密码？</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--box-->
+							<div class="clear"></div>
+								</div>
+								<!--box-wrap-->
+							</div>
+						</div>
+		<div class="bugdoneLoginBg">
+			<img src="image/bugdoneBg.jpg">
+		</div>
+		<div class="copyright">
+			Bug管理工具 
+			<strong>
+			<a href="/home/" target="_blank">首页</a>
+			</strong>
+		</div>
+		<div id="ascrai12000" class="nicescroll-rails" style="width:10px;cursor:default;position:fixed;top:0px;
+			height: 100%; right: 0px; display: block; opacity:0;">
+			<div style="position: relative; top: 0px;float: right;width: 10px; height:204px;border: 0px none ;
+				border-radius: 30px;"></div>
+			</div>
+			<script src="js/bugdone.js"></script>
+	</body>
+</html>

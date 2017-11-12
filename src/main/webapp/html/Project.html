@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../css/project.css" type="text/css">
+		
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/project.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<title>工作台-项目概况</title>
+	</head>
+	<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo" style="cursor: pointer;" onclick="window.location.href=''">
+				<img src="../image/logo.png">
+			</div>
+			<div class="head-nav">
+				<span class="xiangmu">项目</span>
+				<span id="hoverShow1">
+					<strong><label>bug管理系统</label></strong>
+				</span>
+				<p class="search">
+					<input id="searchtxt" class="textbox" name="" onkeypress="return check()" value="根据编号、标题、模块搜索" 
+						onblur="this.value=(this.value=='')?'根据编号、标题、模块搜索'：this.value" onfocus()="this.value=(this.value=='根据
+						编号、标题、模块搜索')?'':this.value" type="text"><input class="search-btn" name="" onclick="search()" value="" type="button"/>
+						
+				</p>
+				</div>
+				<div id="hoverShow2" class="user-info f-r p-relative">
+					<div class="avatar p-absolute loaduserdiv">
+                <i class="online-status" id="bugtalkStatus"></i>
+                <img id="imgUser" src="/Templates/Default/images/wait.gif" alt="" class='loaduser' />
+                 <style>
+                    .loaduser{width:40% !important;height:40% !important;}
+                    .loaduserdiv{top:5px !important;left:10px !important;}
+                    .online-status{width: 8px;height: 8px;border-radius: 50%;border: 2px solid #fff;position: absolute;right: -10px; top: 0;background: #1ab064}
+                    .online-status-off{background:#ababab}
+                </style>
+               </div>
+				 <div class="name fz-14 fw-bold p-relative">
+                <i class="iconfont icon-arrow-copy p-absolute"></i>
+                <div id="lblUser" style='min-width:44px;min-height:10px'></div>
+                <div id="userinfo" class="show-box p-absolute bg-white bd-e2 b-radius4 d-none fz-14">
+                    <div class="avatar1 p-absolute" onclick="changePhoto();">
+                        <img id="imgUserEdit" src="" alt="" />
+                        <span class="changeBj" style="display: none;"></span>
+                        <span class="changeTxt" style="display: none;">修改头像</span>
+                        <input type="hidden" id="hidCurrentUserId" value=""/>
+                    </div>
+                    <br>
+                    <a href="javascript:void(0)" onclick="changeUserEmail();" class="logout"><i class="iconfont icon-youxiang"></i>修改邮箱</a>
+                    <a href="javascript:void(0)" onclick="changeUserName();"><i class="iconfont icon-name"></i>修改姓名</a>
+                    <a href="javascript:void(0)" onclick="changeUserPassword();"><i class="iconfont icon-lock"></i>修改密码</a>
+                    <a href="javascript:void(0)" onclick="openlogin();" class="logout"><i class="iconfont icon-shouji"></i>手机登陆</a>
+                    <a href="javascript:void(0)" onclick="logout();"><i class="iconfont icon-tuichu"></i>退出</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-r notice p-relative" style='display:none'>
+            <span class="num textbg-1 ta-center p-absolute">2</span>
+            <a href="#" title="消息"><i class="iconfont icon-tongzhi"></i></a>
+            </div>
+            <!--关于-->
+				 <div class="f-r">
+                <i class="iconfont icon-banben" onClick="aboutClick()" style="margin: -0.2rem 1.5rem;"  title="关于BugDone"></i>
+            </div>
+            <div class="f-r">
+                <i class="iconfont icon-huiyuanquanyi" id="userPackage" onClick="packageClick()"  title="了解付费版本"></i>
+            </div>
+            <!--二维码-->
+            <div class="f-r shouji">
+                <i class="iconfont icon-shouji" style="margin: -0.2rem 1.9rem 0 .5rem;font-size: 24px;line-height:64px;cursor:pointer;" onclick='opencode()' title="扫一扫"></i>
+            </div>
+                        <!--消息-->
+            <div class="f-r">
+                <i class="iconfont icon-chat1" style="margin: -0.2rem 1rem 0 .5rem;font-size: 24px;line-height:65px;cursor:pointer;" onclick='getchat()' title="暂无新消息"></i>
+            </div>
+                    <!--二维码弹出窗-->
+			
+			<div class="hoverShow">
+				<div class="avatar"></div>
+				<div class="name"></div>
+			</div>
+			<div class="f-r"></div>
+			<div class="f-r"></div>
+			<div class="f-r shouji"></div>
+			<div class="f-r chardiv"></div>
+		</div>
+		<div class="projectIndex">
+		<div id="projectLeft">
+			<div class="project-logo" style="min-height: 54px;">
+			<a class="setup" href="" onclick="changeSetting();" title="设置"></a>
+			<img src="../image/logoshort0.png">
+			</div>
+			<div class="menu">
+				<ul>
+					<li>
+						<a href="#"><i class="icon-gk"></i>项目概况</a>
+						
+					</li>
+					<li>
+						<a href="#" id="ai"><i class="icon-wt"></i>活动问题</a>
+					</li>
+					<li>
+						<a href="#"><i class="icon-all"></i>所有问题</a>
+					</li>
+					<li>
+						<a href="#"><i class="icon-tongji"></i>问题统计</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="#"><i class="icon-daiban"></i>我的待办</a>
+					</li>
+					<li>
+						<a href="#"><i class="icon-fenpei"></i>分配给我</a>
+					</li>
+					<li>
+						<a href="#"><i class="myfp"></i>我的分配</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="#"><i class="icon-fb"></i>版本管理</a>
+					</li>
+					<li>
+						<a href="#"><i class="icon-yingyong"></i>应用中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="projectRight" class="right" >
+			<div class="mw-900">
+				<div class="head-tit">
+					<div class="fz-22">项目概况</div>
+					<div class="head-btn">
+						<div class="button bg-3" onclick="addNewVersion()">
+							<i class="iconfont"></i>发布版本
+						</div>
+						<div class="button submit" onclick="addNewProblem()">
+							<i class="iconfont"></i>提交问题
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</body>
+</html>

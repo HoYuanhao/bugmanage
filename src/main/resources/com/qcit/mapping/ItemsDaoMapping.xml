@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcit.dao.ItemsDao">
+<sql id="countMyProblemNumberByUid">
+select product as id,count(*) as count from problem as p where product  
+in(select pid from participant as part where part.uid=#{id}) 
+and p.uid=#{id} and state in(1,2,3,5,6) GROUP BY product
+</sql>
+
+<sql id="countNeedSolveProblemByUid">
+select product as id,count(*) as count from problem as p where product  
+in(select pid from participant as part where part.uid=#{id}) 
+and p.uid=#{id} and state in(1,2,6) GROUP BY product
+</sql>
+
+<select id="getMyProblemNumberByUid" parameterType="int" resultType="problemcount">
+<include refid="countMyProblemNumberByUid"></include>
+</select>
+
+<select id="getNeedSolveProblemNumberByUid" parameterType="int" resultType="problemcount">
+<include refid="countNeedSolveProblemByUid"></include>
+</select>
+
+<select id="getItemsListVo" parameterType="map" resultType="itemslistvo">
+SELECT  part.pid as id,p.name as name,p.creater,p.creationtime as createtime,itemspic as pic
+from project as p,participant as part 
+WHERE p.id in(SELECT pid FROM participant as part where part.uid=#{id}) and ishidden=#{ishidden} and isexist=1 and part.pid=p.id limit #{start},#{end}
+</select>
+<select id="getItemsListVoCount" parameterType="map" resultType="int">
+SELECT count(*)
+from project as p,participant as part 
+WHERE p.id in(SELECT pid FROM participant as part where part.uid=#{id}) and ishidden=#{ishidden} and isexist=1 and part.pid=p.id
+</select>
+<insert id="setItems" parameterType="itemspo" keyProperty="id" useGeneratedKeys="true">
+INSERT into project(name,description,creater,owner,creationtime,itemspic)
+value(#{name},#{description},#{creater},#{owner},now(),#{itemspic})
+</insert>
+
+<select id="getItemsDate" parameterType="int" resultType="string">
+select creationtime from project where id=#{id}
+</select>
+
+<update id="updateItemsHidden" parameterType="map">
+update from project set ishidden=#{hidden} where id=#{id}
+</update>
+
+<update id="updateItemsExist" parameterType="map">
+update from project set isexist=#{exist} where id=#{id}
+</update>
+
+<select id="getProjectPicPathById" parameterType="int" resultType="string">
+select itemspic from project where id=#{id}
+</select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcit.dao.UserDao">
+<select id="getUserByEmail" resultType="user">
+select * from user where email =#{email};
+</select>
+<insert id="setUser" parameterType="userloginsimple" keyProperty="id" useGeneratedKeys="true">
+INSERT INTO user(email,username,password)VALUE(#{email},#{username},#{password})
+</insert>
+
+<select id="getCountEmail" parameterType="string" resultType="int">
+select count(*) from user where email=#{email} 
+</select>
+<update id="updateEmailById" parameterType="map">
+update user set email=#{email} where id=#{id}
+</update>
+<update id="updateUsernameById" parameterType="map">
+update user set username=#{username} where id=#{id}
+</update>
+<update id="updatePasswordById" parameterType="map"> 
+update user set password=#{password} where id=#{id}
+</update>
+<update id="updateUserPicById" parameterType="map">
+update user set pic=#{pic} where id=#{id}
+</update>
+<select id="getUserNameById" parameterType="int" resultType="string">
+select username from user where id=#{id}
+</select>
+</mapper>
